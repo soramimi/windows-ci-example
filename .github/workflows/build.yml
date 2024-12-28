@@ -14,7 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Configure and Build
+      - name: Build with MSBuild
         run: |
-          cmake -S . -B build -G "Visual Studio 17 2022"
-          cmake --build build --config Release
+          MSBuild.exe windows-ci-example.sln /p:Configuration=Release
