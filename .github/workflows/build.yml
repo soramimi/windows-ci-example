@@ -18,3 +18,9 @@ jobs:
         run: |
           & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe" windows-ci-example.sln /p:Configuration=Release
 
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-ci-example
+          path: |
+            x64\Debug\windows-ci-example.exe
