@@ -1,0 +1,28 @@
+name: Build Windows Application
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Visual Studio
+        uses: actions/setup-msbuild@v1
+
+      - name: Install dependencies
+        run: |
+          choco install -y cmake
+          choco install -y ninja
+
+      - name: Configure and Build
+        run: |
+          cmake -S . -B build -G "Visual Studio 17 2022"
+          cmake --build build --config Release
