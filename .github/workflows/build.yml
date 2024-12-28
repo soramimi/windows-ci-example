@@ -23,4 +23,4 @@ jobs:
         with:
           name: windows-ci-example
           path: |
-            x64\Debug\windows-ci-example.exe
+            x64\Release\windows-ci-example.exe
